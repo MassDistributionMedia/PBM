@@ -12,43 +12,44 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://website.com"
+			url: "http://pbm.mdm.cc"
 
 			# Here are some old site urls that you would like to redirect from
-			oldUrls: [
-				'www.website.com',
-				'website.herokuapp.com'
-			]
+			oldUrls: ['']
 
 			# The default title of our website
-			title: "Your Website"
+			title: "PBM"
 
 			# The website description (for SEO)
 			description: """
-				When your website appears in search results in say Google, the text here will be shown underneath your website's title.
+				
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
+				PBM, MDM, Mass Distribution Media
 				"""
 
 			# The website author's name
-			author: "Your Name"
+			author: "MDM"
 
 			# The website author's email
-			email: "your@email.com"
+			email: "mike@mdm.cm"
 
 			# Styles
 			styles: [
 				"http://yui.yahooapis.com/pure/0.2.0/pure-min.css"
-				"/styles/style.css"
+				"scripts/css/timeline.css"
+				"styles/style.css"
 			]
 
 			# Scripts
 			scripts: [
-				"http://use.typekit.net/ajf8ggy.js"
-				"/scripts/script.js"
+				"http://yui.yahooapis.com/3.11.0/build/yui/yui-min.js"
+				"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+				"scripts/js/timeline-min.js"
+				"scripts/storyjs-embed.js"
+				"scripts/script.js"
 			]
 
 
