@@ -1,0 +1,46 @@
+{
+  "name": "docpad-plugin-pbm",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://github.com/mikeumus/docpad-plugin-iconmonstr.git",
+  "keywords": [
+    "docpad"
+  ],
+  "author": {
+    "name": "MDM Inc",
+    "email": "sales@mdm.cc",
+    "url": "http://mdm.cm"
+  },
+  "maintainers": [
+    {
+      "name": "Michael Mooring",
+      "email": "mike@mdm.cm",
+      "url": "http://mdm.cm"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Michael Mooring",
+      "email": "mike@mdm.cm",
+      "url": "http://mdm.cm"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/mikeumus/docpad-plugin-iconmonstr.git/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikeumus/docpad-plugin-iconmonstr.git"
+  },
+  "engines": {
+    "node": ">=0.8.x",
+    "docpad": ">=6.x"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "./pbm.plugin.coffee",
+  "readmeFilename": "readme.md",
+  "_id": "docpad-plugin-iconmonstr@2.0.2",
+  "_from": "docpad-plugin-iconmonstr@2",
+  "readme": "# iconmonstr icons for DocPad\r\n### via Eco functions\r\n\r\n![Alt text](https://googledrive.com/host/0B9LVk4xbDIJTSWVYcU5fb0RUVVk/iconmonstrs.png \"Current icons available screenshot.\")\r\n\r\nFunction:\r\ngetIconmonstrBlock(`icon`,`style`,`CSSclass`)\r\n\r\nReal world example:\r\n`<%- @getIconmonstrBlock('globe','height:64px;fill:red','iconmonstr-head-nav') %>`"
+}

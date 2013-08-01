@@ -39,17 +39,17 @@ docpadConfig = {
 			# Styles
 			styles: [
 				"http://yui.yahooapis.com/pure/0.2.0/pure-min.css"
-				"scripts/css/timeline.css"
-				"styles/style.css"
+				"/scripts/css/timeline.css"
+				"/styles/style.css"
 			]
 
 			# Scripts
 			scripts: [
 				"http://yui.yahooapis.com/3.11.0/build/yui/yui-min.js"
 				"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
-				"scripts/js/timeline-min.js"
-				"scripts/storyjs-embed.js"
-				"scripts/script.js"
+				"/scripts/js/timeline-min.js"
+				"/scripts/storyjs-embed.js"
+				"/scripts/script.js"
 			]
 
 

@@ -1,6 +1,7 @@
 body {
     margin: 0 auto;
     line-height: 1.7em;
+    letter-spacing: 1px !important;
 }
 
 .l-box {

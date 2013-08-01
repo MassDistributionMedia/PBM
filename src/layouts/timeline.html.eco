@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<article class="timeline">
+    <h1 class="timeline-title"><%= @document.title %></h1>
+    <span class="timeline-author"><%= @document.author %></span>
+    <a href="<%= @getDatabase().get(@document.for)?.get('url') %>" class="timeline-for"><%= @getDatabase().get(@document.for)?.get('title') %></a>
+    <div class="timeline-body">
+        <%- @content %>
+    </div>
+</article>
