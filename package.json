@@ -1,7 +1,8 @@
 {
   "name": "PBM",
-  "version": "0.0.1",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Timeline js",
+  "homepage": "https://github.com/mikeumus/docpad-plugin-iconmonstrtipsy.git",
   "keywords": [
     "docpad",
     "MDM",
@@ -27,19 +28,19 @@
     "npm": "1.2"
   },
   "dependencies": {
-    "docpad": "~6.46.5",
+    "docpad": "~6.47.0",
     "docpad-plugin-cleanurls": "~2.5.0",
     "docpad-plugin-coffeescript": "~2.2.2",
     "docpad-plugin-eco": "~2.0.2",
     "docpad-plugin-less": "~2.2.0",
     "docpad-plugin-marked": "~2.1.1",
-    "docpad-plugin-partials": "~2.7.1",
+    "docpad-plugin-partials": "~2.7.2",
     "docpad-plugin-related": "~2.0.5",
     "docpad-plugin-text": "~2.2.4",
     "docpad-plugin-ghpages": "~2.3.0"
   },
   "devDependencies": {
-    "docpad-plugin-livereload": "~2.4.0"
+    "docpad-plugin-livereload": "~2.5.1"
   },
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {

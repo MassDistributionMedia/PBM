@@ -1,9 +1,9 @@
 # Export
 module.exports = (BasePlugin) ->
 	# Define
-	class pbmPlugin extends BasePlugin
+	class timelinePlugin extends BasePlugin
 		# Name
-		name: 'pbm'
+		name: 'timeline'
 
 		# Config
 		config:
@@ -14,26 +14,29 @@ module.exports = (BasePlugin) ->
 			blockHtml: """
 				<section class="timelines">
 
-					<div class="timelines-new">
-						<h2>New Timeline</h2>
+					<div class="comments-new">
+						<h2>New Comment</h2>
+
+						<p>Enter your comment here. Markdown supported.</p>
 
 						<form action="/timeline" method="POST">
 							<input type="hidden" name="for" value="<%= @document.relativeBase %>" />
+							<label>Author: <input type="author" name="author" /></label>
 							<label>Title: <input type="text" name="title" /></label>
-							<label>json: <input type="text" name="title" /></label>
-							<input class="pure-button" type="submit" value="Create Timeline" />
+							<label>Body: <textarea name="body"></textarea></label>
+							<input type="submit" value="Post Comment" />
 						</form>
 					</div>
 
-					<div class="timelines-list">
-						<h2>timelines</h2>
-						<% if @getTimelines().length is 0: %>
-							<p>No timelines yet</p>
+					<div class="comments-list">
+						<h2>Comments</h2>
+						<% if @getComments().length is 0: %>
+							<p>No comments yet</p>
 						<% else: %>
 							<ul>
-								<% for timeline in @getTimelines().toJSON(): %>
+								<% for comment in @getComments().toJSON(): %>
 									<li>
-										<a href="<%=timeline.url%>"><%=timeline.title or timeline.contentRenderedWithoutLayouts%></a>
+										<a href="<%=comment.url%>"><%=comment.title or comment.contentRenderedWithoutLayouts%></a>
 									</li>
 								<% end %>
 							</ul>
@@ -50,12 +53,12 @@ module.exports = (BasePlugin) ->
 			plugin = @
 			docpad = @docpad
 
-			# getTimelinesBlock
-			templateData.getTimelinesBlock = ->
+			# getCommentsBlock
+			templateData.getTimelinessBlock = ->
 				@referencesOthers()
 				return plugin.getConfig().blockHtml
 
-			# getTimelines
+			# getComments
 			templateData.getTimelines = ->
 				return docpad.getCollection(plugin.getConfig().collectionName).findAll(for: @document.relativeBase)
 
@@ -64,7 +67,7 @@ module.exports = (BasePlugin) ->
 
 
 		# Extend Collections
-		# Create our live collection for our timelines
+		# Create our live collection for our comments
 		extendCollections: ->
 			# Prepare
 			config = @getConfig()
@@ -82,7 +85,7 @@ module.exports = (BasePlugin) ->
 
 
 		# Server Extend
-		# Add our handling for posting the timeline
+		# Add our handling for posting the comment
 		serverExtend: (opts) ->
 			# Prepare
 			{server} = opts
@@ -90,7 +93,7 @@ module.exports = (BasePlugin) ->
 			docpad = @docpad
 			database = docpad.getDatabase()
 
-			# timeline Handing
+			# Comment Handing
 			server.all @getConfig().postUrl, (req,res,next) ->
 				# Prepare
 				config = plugin.getConfig()
@@ -99,19 +102,11 @@ module.exports = (BasePlugin) ->
 				nowString = now.toString()
 				redirect = req.body.redirect ? req.query.redirect ? 'back'
 
-				# Create Story function to create new timeline
-				createStoryJS
-					type: "timeline"
-					width: "800"
-					height: "600"
-					source: "scripts/example_json.json"
-					embed_id: "PBM-homepage-timeline"
-
 				# Prepare
 				documentAttributes =
-					data: '<div id="PBM-homepage-timeline"> </div>' or ''
+					data: req.body.body or ''
 					meta:
-						title: req.body.title or "timeline at #{nowString}"
+						title: req.body.title or "Comment at #{nowString}"
 						for: req.body.for or ''
 						author: req.body.author or ''
 						date: now
